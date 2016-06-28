@@ -1,10 +1,11 @@
 var express=require('express');
 var app=express();
 var mongoose=require('mongoose');
-var mongojs=require('mongojs');
-var db=mongojs('contactlist',['contactlist']);
+//var mongojs=require('mongojs');
+//var db=mongojs('contactlist',['contactlist']);
 var bodyParser=require('body-parser');
-
+var db ='mongodb://localhost/example';
+mongoose.connect(db);
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 app.get('/contactlist',function(req,res){
